@@ -9,7 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.provider "virtualbox" do |box|
      box.customize [ "modifyvm", :id, "--cpus", "2" ]
-     box.customize [ "modifyvm", :id, "--memory", "2048" ]
+     box.customize [ "modifyvm", :id, "--memory", "1536" ]
      box.customize [ "modifyvm", :id, "--natdnshostresolver1", "on" ]
   end
 
