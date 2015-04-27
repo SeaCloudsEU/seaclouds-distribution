@@ -26,7 +26,7 @@ services:
       brooklyn.webconsole.security.user.admin.password=p4ssw0rd
 
 - serviceType: brooklyn.entity.basic.SameServerEntity
-  name: SeaClouds Dashboard + Planner
+  name: SeaClouds Dashboard + Planner + SLA
   brooklyn.children:
   - serviceType: brooklyn.entity.webapp.jetty.Jetty6Server
     name: SeaClouds Dashboard 
@@ -39,3 +39,24 @@ services:
         deployer.httpPort: $brooklyn:component("deployer").attributeWhenReady("brooklynnode.webconsole.httpPort")
         deployer.username: $brooklyn:component("deployer").config("brooklynnode.managementUser")
         deployer.password: $brooklyn:component("deployer").config("brooklynnode.managementPassword")
+  - serviceType: brooklyn.entity.basic.SameServerEntity
+    name: SeaClouds SLA
+    brooklyn.children:
+    - serviceType: brooklyn.entity.webapp.tomcat.TomcatServer
+      name: SLA Core
+      id: sla-core
+      brooklyn.config:
+        java.sysprops:
+            DB_URL: >
+                $brooklyn:formatString("jdbc:%s%s",
+                component("sla-db").attributeWhenReady("datastore.url"), "sc_sla")
+            DB_USERNAME: "atossla"
+            DB_PASSWORD: "_atossla_"
+      war: https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=eu.seaclouds-project&a=sla-service&v=LATEST&e=war
+
+
+    - serviceType: brooklyn.entity.database.mysql.MySqlNode
+      id: sla-db
+      name: SLA Db
+      brooklyn.config:
+        creationScriptUrl: https://raw.githubusercontent.com/SeaCloudsEU/sla-core/first_integrated_platform/sla-repository/src/main/resources/sql/01database.sql

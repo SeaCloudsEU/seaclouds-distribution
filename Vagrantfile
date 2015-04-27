@@ -6,7 +6,7 @@ NODE_COUNT = 2 # Number of SeaClouds nodes to start
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Setup VirtualBox VMs
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "hashicorp/precise64"
   config.vm.provider "virtualbox" do |box|
      box.customize [ "modifyvm", :id, "--cpus", "2" ]
      box.customize [ "modifyvm", :id, "--memory", "1536" ]
