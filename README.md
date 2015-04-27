@@ -32,3 +32,5 @@ This starts up your instance of [Apache Brooklyn](http://brooklyn.io) on your wo
 Please double-check in nohup.out the correct url.
 
 Finally, copy and paste [seaclouds blueprint](seaclouds.yaml) to deploy the SeaClouds platform on the 2 VMs.
+
+You should update the privateKeyFile property in the blueprint to the actual path. If you run setup.sh in the this directory (./setup.sh), the property will be updated for you.
