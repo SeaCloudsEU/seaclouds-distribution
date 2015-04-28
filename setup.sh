@@ -13,5 +13,5 @@ echo "Copied!"
 if [ "$0" = "./setup.sh" ]; then
     PATTERN="s#\(privateKeyFile:\).*\$#\1 ${PWD}/seaclouds_id_rsa#"
     sed -i -e "$PATTERN" ./seaclouds.yaml
-    "Updated private key path in seaclouds.yaml"
+    echo "Updated private key path in seaclouds.yaml"
 fi
