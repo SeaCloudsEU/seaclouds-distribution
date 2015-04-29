@@ -59,4 +59,4 @@ services:
       id: sla-db
       name: SLA Db
       brooklyn.config:
-        creationScriptUrl: https://raw.githubusercontent.com/SeaCloudsEU/sla-core/first_integrated_platform/sla-repository/src/main/resources/sql/01database.sql
+        creationScriptUrl: https://raw.githubusercontent.com/SeaCloudsEU/sla-core/e1d3bd4dec27236cfdefa1eae81d38db3dcd11da/sla-repository/src/main/resources/sql/01database.sql
