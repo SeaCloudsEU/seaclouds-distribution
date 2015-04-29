@@ -31,6 +31,7 @@ services:
   - serviceType: brooklyn.entity.webapp.jetty.Jetty6Server
     name: SeaClouds Dashboard 
     id: dashboard
+    httpPort: 8000
     war: https://oss.sonatype.org/service/local/artifact/maven/redirect?r=snapshots&g=eu.seaclouds-project&a=dashboard&v=LATEST&e=war
     launch.latch: $brooklyn:component("deployer").attributeWhenReady("service.isUp")
     brooklyn.config:
