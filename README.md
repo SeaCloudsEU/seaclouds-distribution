@@ -9,7 +9,7 @@ A deployment of SeaClouds can be launched using Apache Brooklyn. We currently su
 
 ## Launching with Vagrant
 
-Make sure you have [Vagrant](https://www.vagrantup.com/) and [Apache Brooklyn](https://brooklyn.incubator.apache.org/download/index.html) installed, then:
+Make sure you have [Vagrant](https://www.vagrantup.com/), [Virtual Box](https://www.virtualbox.org/) and [Apache Brooklyn](https://brooklyn.incubator.apache.org/download/index.html) installed, then:
 
 ```bash
 cd $HOME
@@ -17,7 +17,7 @@ git clone git@github.com:SeaCloudsEU/seaclouds-distribution.git
 cd seaclouds-distribution
 ./setup
 ```
-Please make sure you have configured BROKLYN_HOME at least in the current terminal.
+Please make sure you have configured BROOKLYN_HOME at least in the current terminal.
 
 ```bash
 vagrant up
